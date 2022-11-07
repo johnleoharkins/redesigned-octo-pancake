@@ -4,7 +4,7 @@ import React from "react";
 import {useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {AuthActions} from "../store/auth-slice";
-import {LoginModal} from "./Overlay";
+import {LoginModal, SideNavOverlay} from "./Overlay";
 
 const Header = () => {
     const navigate = useNavigate();
@@ -33,6 +33,10 @@ const Header = () => {
         )
     }
 
+    const toggleSideNav = () => {
+        dispatch(AuthActions.toggleSideNav())
+    }
+
     return(
             <div className={classes.container}>
                 { authState.loginModalOpen && <LoginModal closeModal={handleCloseLoginModal} />}
@@ -48,7 +52,21 @@ const Header = () => {
                     </div>
                 </div>
 
-                <Navigation />
+                <div className={classes.mobileSideNav}>
+                    <button className={classes.sideNavToggle__button} onClick={toggleSideNav}><span className="material-symbols-outlined">menu</span></button>
+                    { authState.showSideNav && <SideNavOverlay closeOverlay={toggleSideNav} authdControls={authenticated()} /> }
+                    <button className={classes.createLog__button}><span className="material-symbols-outlined">note_add</span></button>
+
+
+                    <div className={classes.brand}>
+                        <h1 className={classes.business__typography}>Le'mag Silphium</h1>
+                    </div>
+
+                </div>
+                <div className={classes.navContainer}>
+                    <Navigation />
+                </div>
+                {/*<Navigation />*/}
             </div>
 
     )

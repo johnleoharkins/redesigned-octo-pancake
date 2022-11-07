@@ -11,7 +11,8 @@ const AuthSlice = createSlice({
         loginError: {
             errorMessage: '',
             statusCode: 0
-        }
+        },
+        showSideNav: false
     },
     reducers: {
         login(state, action){        },
@@ -41,6 +42,9 @@ const AuthSlice = createSlice({
         },
         closeLoginModal(state){
             state.loginModalOpen = false;
+        },
+        toggleSideNav(state){
+            state.showSideNav = !state.showSideNav;
         }
     }
 })

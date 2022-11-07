@@ -3,11 +3,30 @@
 
 
 /*_____________________________________________________________________________*/
+@media only screen and (min-width: 300px) and (max-width: 899px) {
+  .app__container{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
 
+  .footer__container{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    position: sticky;
+    min-height: 100px;
+    bottom: 0;
+    z-index: 2;
+    background-color: rgba(255, 255, 255, 255);
+  }
+
+}
 
 /* 13.3" MacBook Air 2560 x 1600, 1.51 device pixel ratio */
 /* 15.6" touch laptop, 1920p x 1080p, 0.94 device pixel ratio // dell inspiron 3511   */
-@media only screen and (min-width: 900px) and (min-height: 1000px)  {
+@media only screen and (min-width: 900px)   {
 
 
   /* flex container */

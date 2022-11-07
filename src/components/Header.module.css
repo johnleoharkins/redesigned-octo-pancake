@@ -67,7 +67,76 @@
     }
 }
 
-@media only screen and (min-width: 900px) and (min-height: 1000px)  {
+
+
+
+@media only screen and (min-width: 300px) and (max-width: 899px){
+    .navContainer{
+        display: none;
+    }
+
+    .sideNavToggle__button{
+        background-color: white;
+    }
+
+    .mobileSideNav{
+        display: flex;
+        /*flex-direction: column;*/
+        box-sizing: border-box;
+        flex-direction: row;
+    }
+
+
+    .container{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        min-height: 100px;
+        box-sizing: border-box;
+        width: 100%;
+        z-index: 2;
+        position: sticky;
+        top: 0;
+        background-color: rgba(255, 255, 255, 255);
+    }
+
+    .header{
+        display: none;
+        flex-direction: row;
+        flex-wrap: wrap;
+        box-sizing: border-box;
+        flex-grow: 2;
+    }
+
+    .brand{
+        flex-grow: 4;
+
+    }
+
+    .controls{
+        flex-grow: 1;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        align-content: center;
+        max-width: 250px;
+        justify-content: space-evenly;
+        /* plz fix */
+        padding-top: 1rem;
+        padding-right: 3rem;
+    }
+}
+
+
+@media only screen and (min-width: 900px) {
+    .mobileSideNav{
+        display: none;
+    }
+    .navContainer{
+        display: inherit;
+        /*height: 100%;*/
+        width: 100%;
+    }
     .container{
         display: flex;
         flex-direction: column;

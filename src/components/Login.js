@@ -62,25 +62,49 @@ const Login = (props) => {
 
     }, [username, password, dispatch, props])
 
-    return(
-        <div className={`${classes.auth} ${classes.modal}`}>
-            <form onSubmit={handleLogin}>
-                <div className={classes.control}>
-                    <label htmlFor='username'>Username</label>
-                    <input id={"username"} type={"text"} placeholder={"Enter username"}
-                           onChange={handleUsernameInputChange} value={username} />
-                </div>
-                <div className={classes.control}>
-                    <label htmlFor='password'>Password</label>
-                    <input id={"password"} type={"password"} placeholder={"Enter password"}
-                           onChange={handlePasswordInputChange} value={password} />
-                </div>
+    if(props.sideNavLogin){
+        return (
+            <div className={`${classes.sideNavAuth}`}>
+                <form onSubmit={handleLogin}>
+                    <div className={classes.sideNavControl}>
+                        <label htmlFor='username'>Username</label>
+                        <input id={"username"} type={"text"} placeholder={"Enter username"}
+                               onChange={handleUsernameInputChange} value={username} />
+                    </div>
+                    <div className={classes.sideNavControl}>
+                        <label htmlFor='password'>Password</label>
+                        <input id={"password"} type={"password"} placeholder={"Enter password"}
+                               onChange={handlePasswordInputChange} value={password} />
+                    </div>
 
-                <button type={"submit"}>login</button>
-            </form>
+                    <button type={"submit"}>login</button>
+                </form>
 
-        </div>
-    )
+            </div>
+        )
+    }else{
+        return(
+            <div className={`${classes.auth} ${classes.modal}`}>
+                <form onSubmit={handleLogin}>
+                    <div className={classes.control}>
+                        <label htmlFor='username'>Username</label>
+                        <input id={"username"} type={"text"} placeholder={"Enter username"}
+                               onChange={handleUsernameInputChange} value={username} />
+                    </div>
+                    <div className={classes.control}>
+                        <label htmlFor='password'>Password</label>
+                        <input id={"password"} type={"password"} placeholder={"Enter password"}
+                               onChange={handlePasswordInputChange} value={password} />
+                    </div>
+
+                    <button type={"submit"}>login</button>
+                </form>
+
+            </div>
+        )
+    }
+
+
 }
 
 export default Login;

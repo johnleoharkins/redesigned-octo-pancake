@@ -7,9 +7,103 @@
 }
 
 
+@media only screen and (min-width: 300px) and (max-width: 899px){
+    .navBarContainer{
+        margin: 5rem auto;
+        box-shadow: 0 1px 8px rgba(0, 0, 0, 0.2);
+        width: 50%;
+        /*height: auto;*/
+        border-radius: 0 8px 8px 0;
+        /*padding: 10rem 1rem 10rem 1rem;*/
+        padding: 1rem;
+        /*text-align: center;*/
+        background-color: #f4f0fa;
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 110px;
+        /*left: 10px;*/
+
+        /*width: 100%;*/
+        /*max-width: 700px;*/
+        z-index: 100;
+        /*overflow: hidden;*/
+    }
+    .authdUserGreeting{
+        font-family: 'Merriweather', serif;
+        text-align: center;
+        font-style: normal;
+        font-weight: 900;
+    }
+
+    .authdUserControls{
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-evenly;
+    }
+
+    .sideNavLogin{
+        width: 100%;
+        background-color: #f4f0fa !important;
+        /*padding-top: 4px !important;*/
+        /*padding-bottom: 4px !important;*/
+    }
+
+    .navDropdown{
+        position: relative;
+        display: inline-block;
+        /*width: 10rem;*/
+        box-sizing: border-box;
+        margin: 1px;
+    }
+
+    .navDropdownTitle{
+        /*height: 2rem;*/
+        width: 100%;
+        text-align: center;
+        font-style: italic;
+        box-sizing: border-box;
+        padding: 4px;
+        /*background-color: #edf9fc;*/
+        /*outline-color: lightgreen;*/
+        /*outline-width: medium;*/
+        /*outline-style: auto;*/
+    }
+
+    .navDropdownContent{
+        display: flex;
+        flex-direction: column;
+        /*position: absolute;*/
+        box-sizing: border-box;
+        padding: 8px;
+        /* maybe keep */
+        border-radius: 7px;
+        background-color: rgba(252, 255, 254, 1);
+    }
+
+    .navDropdownLink{
+        box-sizing: border-box;
+        /*box-sizing: content-box;*/
+        padding: 8px;
+        width: 100%;
+        /* maybe keep */
+        margin-top: 2px;
+        margin-bottom: 2px;
+        border: solid rgba(244, 255, 252, 1);
+        border-radius: 4px;
+    }
 
 
-@media only screen and (min-width: 900px) and (min-height: 1000px)  {
+
+
+
+
+}
+/* ````````````````````````````````````````````````````````````````````````*/
+@media only screen and (min-width: 900px)  {
+    .sideNavLogin{
+        display: none;
+    }
     .navBarContainer{
         display: flex;
         flex-wrap: wrap;
