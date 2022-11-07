@@ -1,0 +1,86 @@
+
+/* https://css-tricks.com/snippets/css/a-guide-to-flexbox/ */
+
+
+/*_____________________________________________________________________________*/
+
+
+/* 13.3" MacBook Air 2560 x 1600, 1.51 device pixel ratio */
+/* 15.6" touch laptop, 1920p x 1080p, 0.94 device pixel ratio // dell inspiron 3511   */
+@media only screen and (min-width: 900px) and (min-height: 1000px)  {
+
+
+  /* flex container */
+  .app__container{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  /*  flex grow: 2 for content/body section? 1 for header / footer */
+  /*  flex-flow is shorthand for flex-direction & wrap properties defining main and cross axes (default row nowrap) */
+  /*  flex-basis: default size of an element before the remaining space is distributed.
+            It can be a length (e.g. 20%, 5rem, etc.) or a keyword.
+            The auto keyword means “look at my width or height property”
+                      (which was temporarily done by the main-size keyword until deprecated).
+            The content keyword means “size it based on the item’s content” – this keyword isn’t well supported yet,
+            so it’s hard to test and harder to know what its brethren max-content, min-content, and fit-content do.*/
+  }
+
+  .footer__container{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    position: sticky;
+    min-height: 100px;
+    bottom: 0;
+    z-index: 2;
+    background-color: rgba(255, 255, 255, 255);
+  }
+
+
+}
+
+
+
+
+
+
+/*.appContent__container{*/
+/*  grid-area: 3 / 3 / 7 / 4;*/
+/*  display: flex;*/
+/*  min-height: 480px;*/
+/*  !*border-color: lightgrey;*!*/
+/*  border: 2px solid lightgrey;*/
+/*}*/
+
+
+/*  .App{*/
+/*  !*display: flex;*!*/
+/*  height: 100%;*/
+/*  !*width: 100%;*!*/
+/*}*/
+
+
+/*.app__container{*/
+/*  !*display: grid;*!*/
+/*  !*grid-template-columns: repeat(6, 1fr);*!*/
+/*  !*grid-template-rows: repeat(8, 1fr);*!*/
+/*  !*grid-auto-rows: auto;*!*/
+
+/*  display: flex;*/
+/*  flex-wrap: nowrap;*/
+/*  flex-direction: column;*/
+/*  */
+/*}*/
+
+/*.header__container{*/
+/*  min-height: 4rem;*/
+/*  display: contents;*/
+/*  !*display: grid;*!*/
+/*  grid-area: 1 / 1 / 3 / 9;*/
+/*  !*grid-template-columns: repeat(4, 25%);*!*/
+/*  !*grid-template-rows: repeat(4, 25%);*!*/
+/*}*/
+
+
+

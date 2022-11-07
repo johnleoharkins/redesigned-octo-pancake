@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+
+import classes from './App.module.css';
+import {Outlet, useLocation} from "react-router-dom";
+import React from "react";
+import Landing from "./containers/Landing";
+import Header from "./components/Header";
 
 function App() {
+    let location = useLocation();
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    // <div className={classes.App}>
+    <div className={classes.app__container}>
+        <Header />
+        { location.pathname === "/" ? <Landing /> : <Outlet /> }
+
+        <div className={classes.footer__container}>
+            <p>la vox de la developper/programmeur/analyste fonctionnel(jajajaja) en le laboratoire. honorer y faire confiance a Dieu</p>
+        </div>
     </div>
+    // </div>
   );
 }
 

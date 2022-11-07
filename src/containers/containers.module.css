@@ -1,0 +1,117 @@
+
+
+.content__container{
+    width: 100%;
+    min-height: 900px;
+}
+
+.post__container{
+    background-color: lightcyan;
+    border-radius: 8px 8px;
+    border: 1px solid darkcyan;
+    box-shadow: 1px 0 10px darkcyan;
+    margin: 14px;
+    padding: 4px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    flex-flow: column;
+
+
+}
+
+h4{
+    text-align: center;
+
+}
+
+
+.post__author{
+    font-size: x-small;
+    opacity: 75%;
+    text-align: end;
+}
+.newLog__button__container{
+
+}
+
+.newLog__button{
+    background-color: rgba(244, 255, 252, 255);
+    border-radius: 141px 4px;
+    border: none;
+    position: sticky;
+    left: 10%;
+    top: 20%;
+    box-sizing: border-box;
+    width: 180px;
+    height: 64px;
+
+    font-family: 'Merriweather', serif;
+    font-weight: 300;
+    text-align: center;
+    font-size: medium;
+    text-shadow: 4px 4px 4px gray;
+
+}
+
+.newLog__button:hover{
+    background-color: rgba(207, 207, 207, 1);
+    transition: 1s background-color ease-in;
+    animation: newLogButtonIdle 2s ease infinite;
+}
+
+.newLog__button:hover::after{
+
+
+}
+
+@keyframes newLogButtonIdle {
+    0%{
+        box-shadow: 0 0 10px darkgoldenrod;
+    }
+    50%{
+        box-shadow: 0 0 34px darkgoldenrod;
+    }
+    100%{
+        box-shadow: 0 0 10px darkgoldenrod;
+    }
+}
+
+
+
+.logList__container{
+    display: flex;
+    flex-direction: column-reverse;
+    flex-wrap: nowrap;
+    align-self: center;
+    /*overflow: scroll;*/
+    /*height: 900px;*/
+    width: 33%;
+    /*overflow-x: hidden;*/
+
+}
+
+.log__container{
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px 8px;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+    padding: 1rem;
+}
+
+.logAuthor{
+    font-family: 'Montserrat', sans-serif;
+    font-size: x-small;
+    font-style: italic;
+    align-self: self-end;
+}
+.logTitle{
+    font-family: 'Montserrat', sans-serif;
+    align-self: flex-start;
+
+}
+.logContent{
+    font-family: 'Montserrat', sans-serif;
+    padding-left: 2rem;
+}

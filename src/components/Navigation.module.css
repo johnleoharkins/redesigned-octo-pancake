@@ -1,0 +1,100 @@
+
+.button__typography{
+    font-family: 'Merriweather', serif;
+    font-weight: 300;
+    text-align: center;
+    font-size: medium;
+}
+
+
+
+
+@media only screen and (min-width: 900px) and (min-height: 1000px)  {
+    .navBarContainer{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        align-content: center;
+        box-sizing: border-box;
+        padding: 0.5rem;
+        flex-grow: 1;
+    }
+
+    .navDropdown{
+        position: relative;
+        display: inline-block;
+        width: 10rem;
+        box-sizing: border-box;
+        margin: 1px;
+    }
+
+    .navDropdownTitle{
+        /*height: 2rem;*/
+        width: 100%;
+        text-align: center;
+        font-style: italic;
+        box-sizing: border-box;
+        padding: 4px;
+        /*background-color: #edf9fc;*/
+        /*outline-color: lightgreen;*/
+        /*outline-width: medium;*/
+        /*outline-style: auto;*/
+    }
+
+    .navDropdownContent{
+        display: none;
+        position: absolute;
+        box-sizing: border-box;
+        padding: 8px;
+        /* maybe keep */
+        border-radius: 7px;
+        background-color: rgba(252, 255, 254, 1);
+    }
+
+    .navDropdown:hover{
+
+    }
+
+    .navDropdown:hover .navDropdownContent{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+    }
+
+    .navDropdownLink{
+        box-sizing: border-box;
+        /*box-sizing: content-box;*/
+        padding: 8px;
+        width: 100%;
+        /* maybe keep */
+        margin-top: 2px;
+        margin-bottom: 2px;
+        border: solid rgba(244, 255, 252, 1);
+        border-radius: 4px;
+    }
+
+    .navDropdownLink:hover{
+        /*box-sizing: content-box;*/
+        font-weight: bolder;
+        background-color: rgba(244, 255, 252, 1);
+        border-radius: 7px;
+        font-size: 24px;
+        cursor: pointer;
+        animation: navLinkHover 3s ease-in-out infinite ;
+    }
+
+    @keyframes navLinkHover {
+        0%{
+            box-shadow: 0px 0px 10px deepskyblue;
+        }
+        50%{
+            box-shadow: 0px 0px 10px darkblue;
+        }
+        100%{
+            box-shadow: 0px 0px 10px deepskyblue;
+        }
+
+    }
+
+}
