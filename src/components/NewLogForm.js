@@ -53,6 +53,7 @@ const NewLogForm = (props) => {
 
     return (
         <div className={`${classes.auth} ${classes.modal}`}>
+            <button className={classes.closeOverlay__button} onClick={props.closeOverlay}><span>x</span></button>
             <form onSubmit={handleSubmit}>
                 <div className={classes.control}>
                     <label htmlFor={"logTitle"}>Log Title</label>

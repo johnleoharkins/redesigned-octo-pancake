@@ -84,6 +84,8 @@
         /*flex-direction: column;*/
         box-sizing: border-box;
         flex-direction: row;
+        align-items: center;
+
     }
 
 

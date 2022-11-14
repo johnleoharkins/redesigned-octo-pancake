@@ -3,13 +3,13 @@ import {useLoaderData} from "react-router-dom";
 import classes from './containers.module.css'
 import {useDispatch, useSelector} from "react-redux";
 import {newLogActions} from "../store/new-log-slice";
-import Overlay from "../components/Overlay";
+import Overlay, {NewLogOverlay} from "../components/Overlay";
 import NewLogForm from "../components/NewLogForm";
 
 const Writings = () => {
     const logs = useLoaderData()
     // console.log("posts from loaderData... ", posts)
-    const {isAuthd} = useSelector(state => state.auth)
+    const {isAuthd, showSideNav} = useSelector(state => state.auth)
     const {newLogOverlayOpen} = useSelector(state => state.newLog)
     const dispatch = useDispatch();
 
@@ -36,7 +36,7 @@ const Writings = () => {
 
     return (
         <React.Fragment>
-            {isAuthd && (
+            {isAuthd && !showSideNav && (
                 // <div className={classes.newLog__button__container}>
                     <button className={classes.newLog__button} onClick={handleOpenNewLogOverlay}>New Log</button>
                 // </div>
@@ -47,10 +47,13 @@ const Writings = () => {
                 {logsList}
             </div>
 
+            {/*{newLogOverlayOpen && (*/}
+            {/*    <Overlay closeOverlay={handleCloseNewLogOverlay}>*/}
+            {/*        <NewLogForm closeOverlay={handleCloseNewLogOverlay} />*/}
+            {/*    </Overlay>)}            */}
+
             {newLogOverlayOpen && (
-                <Overlay closeOverlay={handleCloseNewLogOverlay}>
-                    <NewLogForm closeOverlay={handleCloseNewLogOverlay} />
-                </Overlay>)}
+                <NewLogOverlay closeOverlay={handleCloseNewLogOverlay} />)}
 
         </React.Fragment>
     )

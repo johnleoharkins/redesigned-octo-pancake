@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import classes from "./Overlay.module.css"
 import Login from "./Login";
 import Navigation from "./Navigation";
+import NewLogForm from "./NewLogForm";
 
 
 const Backdrop = (props) => {
@@ -29,13 +30,22 @@ export const SideNavOverlay = (props) => {
     )
 }
 
+export const NewLogOverlay = (props) => {
+    return(
+        <div>
+            {ReactDOM.createPortal(<Backdrop closeModal={props.closeOverlay} />, document.getElementById("backdrop"))}
+            {ReactDOM.createPortal(<NewLogForm closeOverlay={props.closeOverlay} />, document.getElementById("modal-overlay"))}
+        </div>
+    )
+}
+
 
 const Overlay = (props) => {
 
 
     return ReactDOM.createPortal(
                     <div className={classes.overlay}>
-                        <button></button>
+                        <button>x</button>
                         <div className={classes.modal}>
                             {props.children}
                         </div>

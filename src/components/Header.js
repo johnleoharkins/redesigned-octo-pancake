@@ -5,6 +5,7 @@ import {useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {AuthActions} from "../store/auth-slice";
 import {LoginModal, SideNavOverlay} from "./Overlay";
+import {newLogActions} from "../store/new-log-slice";
 
 const Header = () => {
     const navigate = useNavigate();
@@ -37,6 +38,11 @@ const Header = () => {
         dispatch(AuthActions.toggleSideNav())
     }
 
+    const handleOpenNewLogOverlay = () => {
+        dispatch(newLogActions.openLogOverlay())
+    }
+
+
     return(
             <div className={classes.container}>
                 { authState.loginModalOpen && <LoginModal closeModal={handleCloseLoginModal} />}
@@ -53,9 +59,12 @@ const Header = () => {
                 </div>
 
                 <div className={classes.mobileSideNav}>
-                    <button className={classes.sideNavToggle__button} onClick={toggleSideNav}><span className="material-symbols-outlined">menu</span></button>
+                    <button className={classes.account__iconButton} onClick={toggleSideNav}><span className="material-symbols-outlined">menu</span></button>
+                    {/*<button className={classes.sideNavToggle__button} onClick={toggleSideNav}><span className="material-symbols-outlined">menu</span></button>*/}
                     { authState.showSideNav && <SideNavOverlay closeOverlay={toggleSideNav} authdControls={authenticated()} /> }
-                    <button className={classes.createLog__button}><span className="material-symbols-outlined">note_add</span></button>
+                    { authState.isAuthd && <button className={classes.account__iconButton} onClick={handleOpenNewLogOverlay}><span
+                        className="material-symbols-outlined">note_add</span></button>}
+                    {/*<button className={classes.createLog__button}><span className="material-symbols-outlined">note_add</span></button>*/}
 
 
                     <div className={classes.brand}>

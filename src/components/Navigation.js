@@ -21,7 +21,7 @@ const Navigation = (props) => {
 
     return(
             <div className={classes.navBarContainer}>
-                { (authState.isAuthd && authState.showSideNav) ? (
+                { (authState.isAuthd && authState.showSideNav) && (
                     <div className={`${classes.navDropdown} ` }>
                         <div className={classes.navDropdownTitle}><span className={classes.authdUserGreeting}>Hello, {authState.username}</span></div>
                         <hr />
@@ -29,15 +29,9 @@ const Navigation = (props) => {
                             {props.authdControls}
                         </div>
                     </div>
-                ) : (
-                    <div className={`${classes.navDropdown} ` }>
-                        <div className={classes.navDropdownTitle}>Login</div>
-                        <hr />
-                        <div className={`${classes.navDropdownContent} ${classes.sideNavLogin}`}>
-                            <Login closeModal={props.closeOverlay} sideNavLogin={true} />
-                        </div>
-                    </div>
-                )}
+                )
+
+                }
 
 
                 <div className={classes.navDropdown}>

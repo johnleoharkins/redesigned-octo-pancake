@@ -1,5 +1,7 @@
-@media only screen and (min-width: 300px){
-
+@media only screen and (min-width: 300px) and (max-width: 899px){
+    .newLog__button{
+        display: none;
+    }
 }
 
 .content__container{
