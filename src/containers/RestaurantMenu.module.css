@@ -1,0 +1,28 @@
+
+
+.content__container{
+    /*display: flex;*/
+    /*flex-direction: column-reverse;*/
+    /*flex-wrap: nowrap;*/
+    align-self: center;
+    /*width: 33%;*/
+
+}
+
+.footer__container{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    position: sticky;
+    min-height: 100px;
+    bottom: 0;
+    z-index: 2;
+    background-color: rgba(255, 255, 255, 255);
+}
+
+@media only screen and (min-width: 300px) and (max-width: 899px) {
+    .content__container{
+        min-height: 680px;
+    }
+}

@@ -6,6 +6,7 @@ import {useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {AuthActions} from "../store/auth-slice";
 import Login from "./Login";
+import {LoginModal} from "./Overlay";
 
 const Navigation = (props) => {
     const navigate = useNavigate();
@@ -21,7 +22,7 @@ const Navigation = (props) => {
 
     return(
             <div className={classes.navBarContainer}>
-                { (authState.isAuthd && authState.showSideNav) && (
+                { (authState.isAuthd && authState.showSideNav) ? (
                     <div className={`${classes.navDropdown} ` }>
                         <div className={classes.navDropdownTitle}><span className={classes.authdUserGreeting}>Hello, {authState.username}</span></div>
                         <hr />
@@ -29,7 +30,11 @@ const Navigation = (props) => {
                             {props.authdControls}
                         </div>
                     </div>
-                )
+                ) : (
+                    <div className={classes.sideNavLogin}>
+                        <Login sideNavLogin={true} />
+                    </div>
+                    )
 
                 }
 

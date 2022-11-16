@@ -15,9 +15,9 @@ function App() {
         <Header />
         { location.pathname === "/" ? <Landing /> : <Outlet /> }
 
-        <div className={classes.footer__container}>
-            <p>la vox de la developper/programmeur/analyste fonctionnel(jajajaja) en le laboratoire. honorer y faire confiance a Dieu</p>
-        </div>
+        {/*<div className={classes.footer__container}>*/}
+        {/*    <p>la vox de la developper/programmeur/analyste fonctionnel(jajajaja) en le laboratoire. honorer y faire confiance a Dieu</p>*/}
+        {/*</div>*/}
     </div>
     // </div>
   );

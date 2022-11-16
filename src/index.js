@@ -10,6 +10,7 @@ import {Provider} from "react-redux";
 import store from "./store";
 import Writings from "./containers/Writings";
 import Menu from "./Menu/Menu";
+import AddMenuItem from "./components/AddMenuItem";
 
 
 const router = createBrowserRouter([
@@ -19,7 +20,17 @@ const router = createBrowserRouter([
         children: [
             {
                 path: "/restaurant-menu",
-                element: <RestaurantMenu />
+                element: <RestaurantMenu />,
+                children: [
+                    {
+                        path: "/restaurant-menu/add-item",
+                        element: <AddMenuItem />
+                    },
+                    {
+                        path: "/restaurant-menu/",
+                        element: <Menu />
+                    },
+                ]
             },
             {
                 path: "/restaurant-menu-two",

@@ -45,6 +45,7 @@
     .sideNavLogin{
         width: 100%;
         background-color: #f4f0fa !important;
+        /*position: fixed;*/
         /*padding-top: 4px !important;*/
         /*padding-bottom: 4px !important;*/
     }

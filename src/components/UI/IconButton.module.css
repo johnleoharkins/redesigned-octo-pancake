@@ -1,0 +1,15 @@
+
+
+
+.iconButton{
+    background-color: #FFFFFF;
+    border: none;
+    border-radius: 50% 50%;
+    justify-content: center;
+    align-content: center;
+    padding: 1px 1px;
+    box-sizing: border-box;
+    height: 34px;
+    width: 36px;
+    position: relative;
+}

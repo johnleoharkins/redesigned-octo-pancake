@@ -22,9 +22,14 @@
     text-align: center;
     box-sizing: border-box;
     background-color: white;
+    /*position: fixed;*/
     /*z-index: 11;*/
 }
-
+@media only screen and (min-width: 900px)  {
+    .sideNavAuth{
+        display: none;
+    }
+}
 
 .modal {
     position: fixed;
