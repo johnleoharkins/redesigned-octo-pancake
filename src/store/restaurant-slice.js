@@ -1,15 +1,34 @@
 import {createSlice} from "@reduxjs/toolkit";
 
+
+const a = async () => {
+    const fetchInit = {
+        method: "GET",
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        mode: "cors",
+        cache: 'no-cache',
+        referrerPolicy: 'no-referrer',
+    }
+    const res = await fetch(`http://localhost:5000/restaurant/menu`, fetchInit)
+    const json = await res.json()
+    return json
+}
+
+
 const RestaurantSlice = createSlice({
     name: 'restaurant',
     initialState: {
         newMenuItem: {
+            id: '',
             category: 'appetizer',
             name: '',
             price: "00.00",
             description: '',
-            imageURL: null
-        }
+            imageURL: ''
+        },
+        menuItems: []
     },
     reducers: {
         updateNewMenuItemCategory(state, action){
@@ -38,6 +57,21 @@ const RestaurantSlice = createSlice({
         },
         setError(state, action){
             state.newMenuItem.error = action.payload
+        },
+        updateMenuItems(state, action){
+            // const fetchInit = {
+            //     method: "GET",
+            //     headers: {
+            //         'Content-Type': 'application/json',
+            //     },
+            //     mode: "cors",
+            //     cache: 'no-cache',
+            //     referrerPolicy: 'no-referrer',
+            // }
+            // const res = await fetch(`http://localhost:5000/restaurant/menu`, fetchInit)
+            // const json = await res.json()
+            // state.menuItems = json
+            state.menuItems = action.payload
         }
     }
 })

@@ -11,6 +11,8 @@ import store from "./store";
 import Writings from "./containers/Writings";
 import Menu from "./Menu/Menu";
 import AddMenuItem from "./components/AddMenuItem";
+import {RestaurantActions} from "./store/restaurant-slice";
+import NewMenu from "./components/Menu/NewMenu";
 
 
 const router = createBrowserRouter([
@@ -21,6 +23,22 @@ const router = createBrowserRouter([
             {
                 path: "/restaurant-menu",
                 element: <RestaurantMenu />,
+                loader: async () => {
+                    // const fetchInit = {
+                    //     method: "GET",
+                    //     headers: {
+                    //         'Content-Type': 'application/json',
+                    //     },
+                    //     mode: "cors",
+                    //     cache: 'no-cache',
+                    //     referrerPolicy: 'no-referrer',
+                    // }
+                    // const res = await fetch(`http://localhost:5000/restaurant/menu`, fetchInit)
+                    // const json = await res.json()
+                    // console.log('/restaurant-menu (parent) loader method',json)
+                    // // dispatch(RestaurantActions.updateMenuItems(json))
+                    // return json
+                },
                 children: [
                     {
                         path: "/restaurant-menu/add-item",
@@ -28,7 +46,7 @@ const router = createBrowserRouter([
                     },
                     {
                         path: "/restaurant-menu/",
-                        element: <Menu />,
+                        element: <NewMenu />,
                         loader: async () => {
                             const fetchInit = {
                                 method: "GET",
@@ -40,9 +58,13 @@ const router = createBrowserRouter([
                                 referrerPolicy: 'no-referrer',
                             }
                             const res = await fetch(`http://localhost:5000/restaurant/menu`, fetchInit)
-                            return res.json()
+                            const json = await res.json()
+                            console.log(json)
+                            // dispatch(RestaurantActions.updateMenuItems(json))
+                            return json
                         }
-                    },
+                    }
+
                 ]
             },
             {

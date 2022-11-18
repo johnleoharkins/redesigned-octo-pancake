@@ -10,8 +10,7 @@ import {useLoaderData} from "react-router-dom";
 const Menu = () => {
     const [subMenuSelection, setSubMenuSelection] = useState("appetizers");
     const [itemList, setItemList] = useState();
-    const loaderData = useLoaderData()
-    console.log('loader data...', loaderData)
+
 
 
     useEffect(() => {

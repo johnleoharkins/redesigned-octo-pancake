@@ -73,8 +73,10 @@ const AddMenuItem = () => {
 
         const res = await fetch("http://localhost:5000/restaurant/new-item", {method: 'POST', body: formData})
         if(res.ok){
-            dispatch(RestaurantActions.resetFormField())
-            navigate('/restaurant-menu')
+            // dispatch(RestaurantActions.resetFormField())
+            // const json = await res.json()
+            // dispatch(RestaurantActions.updateMenuItems(json))
+            navigate('/restaurant-menu/')
         }else{
             dispatch(RestaurantActions.setError(res.statusMessage))
             console.log('Error uploading new item...')
