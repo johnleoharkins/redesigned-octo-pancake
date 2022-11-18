@@ -1,11 +1,13 @@
-import React from "react";
+import React, {useCallback} from "react";
 import classes from './AddMenuItem.module.css'
 import {useDispatch, useSelector} from "react-redux";
 import {RestaurantActions} from "../store/restaurant-slice";
+import {useNavigate} from "react-router-dom";
 
 const AddMenuItem = () => {
     const { category, name, price, description, imageURL } = useSelector(state => state.restaurant.newMenuItem)
     const dispatch = useDispatch()
+    const navigate = useNavigate()
 
     const handleItemCategoryChange = (event) => {
         const itemCategory = event.currentTarget.value
@@ -16,10 +18,37 @@ const AddMenuItem = () => {
         const itemName = event.target.value
         dispatch(RestaurantActions.updateNewMenuItemName(itemName))
     }
-    const handleItemPriceChange = (event) => {
-        const itemPrice = event.target.value
-        dispatch(RestaurantActions.updateNewMenuItemPrice(itemPrice))
-    }
+    const handleItemPriceChange = useCallback((event) => {
+        const a = event.target.value
+        let array = []
+        const b = a.split('')
+        b.forEach((b, index) => {
+            if(b !== '.'){
+                array.push(b)
+            }
+        })
+        let change = ''
+        array.splice((array.length-2), 0 , '.')
+        if(array.length <= 4){
+            for(let x = 0; x < (5-array.length); x++) {
+                change = change.concat('0')
+            }
+        }
+        array.forEach((val, i) => {
+            if(array.length > 5 && i == 0 && val == '0'){
+
+            }else{
+                change = change.concat(val)
+            }
+
+        })
+
+
+        console.log(change)
+        dispatch(RestaurantActions.updateNewMenuItemPrice(change))
+
+
+    }, [price])
     const handleItemDescriptionChange = (event) => {
         const itemDescr = event.target.value
         dispatch(RestaurantActions.updateNewMenuItemDescription(itemDescr))
@@ -31,11 +60,32 @@ const AddMenuItem = () => {
         dispatch(RestaurantActions.updateNewMenuItemImageFile(itemImageUrl))
     }
 
+    const handleSubmitItem = async (event) => {
+        event.preventDefault()
+        const formData = new FormData();
+        const itemImageInput = document.getElementById('item-image')
+        const itemImageFile = itemImageInput.files[0]
+        formData.append('itemImageFile', itemImageFile)
+        formData.append("category", category)
+        formData.append("name", name)
+        formData.append("price", price)
+        formData.append("description", description)
+
+        const res = await fetch("http://localhost:5000/restaurant/new-item", {method: 'POST', body: formData})
+        if(res.ok){
+            dispatch(RestaurantActions.resetFormField())
+            navigate('/restaurant-menu')
+        }else{
+            dispatch(RestaurantActions.setError(res.statusMessage))
+            console.log('Error uploading new item...')
+        }
+    }
+
     return(
         <div>
             Add menu item
 
-            <form>
+            <form onSubmit={handleSubmitItem}>
                 <div className={classes.newMenuItemControl}>
                     <label htmlFor={'menu_category'}>Item Category</label>
                     <select name={'menu_category'} id={'menu_category'} onChange={handleItemCategoryChange} value={category}>
@@ -54,7 +104,7 @@ const AddMenuItem = () => {
 
                 <div className={classes.newMenuItemControl}>
                     <label htmlFor={'price'}>Item Price</label>
-                    <input id={'price'} type={'number'} onChange={handleItemPriceChange} value={price} min={0.00} step={0.01} />
+                    <input id={'price'} type={'string'} onChange={handleItemPriceChange} value={price}/>
                 </div>
 
 

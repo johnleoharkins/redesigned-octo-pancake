@@ -4,11 +4,14 @@ import MenuItemList from "./MenuItemList";
 import {APPETIZERS, ENTREES, BEVERAGES} from "../data/MenuData";
 import classes from "./Menu.module.css"
 import React from "react";
+import {useLoaderData} from "react-router-dom";
 
 
 const Menu = () => {
     const [subMenuSelection, setSubMenuSelection] = useState("appetizers");
     const [itemList, setItemList] = useState();
+    const loaderData = useLoaderData()
+    console.log('loader data...', loaderData)
 
 
     useEffect(() => {

@@ -6,7 +6,7 @@ const RestaurantSlice = createSlice({
         newMenuItem: {
             category: 'appetizer',
             name: '',
-            price: 0.00,
+            price: "00.00",
             description: '',
             imageURL: null
         }
@@ -27,6 +27,18 @@ const RestaurantSlice = createSlice({
         updateNewMenuItemImageFile(state, action){
             state.newMenuItem.imageURL = action.payload
         },
+        resetFormField(state){
+            state.newMenuItem.category = 'appetizer'
+            state.newMenuItem.name = ''
+            state.newMenuItem.price = '00.00'
+            state.newMenuItem.description = ''
+            state.newMenuItem.imageURL = null
+            state.newMenuItem.error = null
+
+        },
+        setError(state, action){
+            state.newMenuItem.error = action.payload
+        }
     }
 })
 

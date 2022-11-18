@@ -28,7 +28,20 @@ const router = createBrowserRouter([
                     },
                     {
                         path: "/restaurant-menu/",
-                        element: <Menu />
+                        element: <Menu />,
+                        loader: async () => {
+                            const fetchInit = {
+                                method: "GET",
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                },
+                                mode: "cors",
+                                cache: 'no-cache',
+                                referrerPolicy: 'no-referrer',
+                            }
+                            const res = await fetch(`http://localhost:5000/restaurant/menu`, fetchInit)
+                            return res.json()
+                        }
                     },
                 ]
             },
@@ -44,7 +57,7 @@ const router = createBrowserRouter([
                 path: "/writings",
                 element: <Writings />,
                 loader: async () => {
-                    const res = await fetch(`http://localhost:5000/posts`)
+                    const res = await fetch(`http://localhost:5000/posts`, {'method': "GET"})
                     return res.json()
                 }
             }
