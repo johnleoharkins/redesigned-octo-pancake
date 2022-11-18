@@ -28,7 +28,8 @@ const RestaurantSlice = createSlice({
             description: '',
             imageURL: ''
         },
-        menuItems: []
+        menuItems: [],
+        category: 'appetizer'
     },
     reducers: {
         updateNewMenuItemCategory(state, action){
@@ -72,6 +73,9 @@ const RestaurantSlice = createSlice({
             // const json = await res.json()
             // state.menuItems = json
             state.menuItems = action.payload
+        },
+        updateMenuCategory(state, action){
+            state.category = action.payload
         }
     }
 })

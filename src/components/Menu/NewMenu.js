@@ -2,12 +2,13 @@ import React, {useCallback, useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import RestaurantSlice, {RestaurantActions} from "../../store/restaurant-slice";
 import {useLoaderData, useNavigate} from "react-router-dom";
-
+import NewMenuItem from "./NewMenuItem";
+import classes from './NewMenu.module.css'
 const NewMenu = () => {
     const navigate = useNavigate()
     const loaderData = useLoaderData()
     const dispatch = useDispatch()
-    const menuItems = useSelector(state => state.restaurant.menuItems)
+    const {menuItems, category} = useSelector(state => state.restaurant)
 
     // const getMenuItems=async () => {
     //     const fetchInit = {
@@ -29,26 +30,42 @@ const NewMenu = () => {
 
     useEffect(() => {
         dispatch(RestaurantActions.updateMenuItems(loaderData))
+
+
         // getMenuItems()
         // dispatch(RestaurantActions.updateMenuItems(loaderData))
     },[])
-    let itemsList;
-    if(menuItems.length > 0){
-        itemsList = menuItems.map((item) => {
-            return(
-                <div key={item.id}>
-                    <h4>{item.name}</h4>
-                    <img src={`http://localhost:5000${item.imageURL}`} />
-                </div>
-            )
-        })
+
+    const getMenuItems = () => {
+        console.log(menuItems)
+        let menuItemsList = <div>Loading</div>
+        if(menuItems.length > 0){
+            menuItemsList = menuItems.filter((item) => item.category === category ).map((item) => {
+                return(
+                    <div key={item.id} className={classes.MenuItem__container}>
+                        <NewMenuItem id={item.id} category={item.category} name={item.name} price={item.price} description={item.description} imageURL={item.imageURL} />
+                    </div>
+                )
+            })
+        }else{
+            <div><span>Menu Items not available.</span></div>
+        }
+        return menuItemsList
     }
 
-
     return(
-        <div>
-            {menuItems.length > 0 && itemsList}
-        </div>
+        <React.Fragment>
+            <div>
+                <button onClick={() => dispatch(RestaurantActions.updateMenuCategory('entree'))}>entrees</button>
+                <button onClick={() => dispatch(RestaurantActions.updateMenuCategory('appetizer'))}>appetizers</button>
+                <button onClick={() => dispatch(RestaurantActions.updateMenuCategory('beverage'))}>beverages</button>
+            </div>
+            <div className={classes.menuItemsList}>
+                <h3 style={{'textAlign': 'center'}}>{category}</h3>
+                {getMenuItems()}
+            </div>
+
+        </React.Fragment>
     )
 }
 
