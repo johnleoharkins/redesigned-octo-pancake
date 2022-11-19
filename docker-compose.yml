@@ -1,0 +1,37 @@
+version: '3.7'
+
+services:
+  web:
+    stdin_open: true
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '3000:3000'
+    volumes:
+      - /app/node_modules
+      - .:/app
+  web-dev:
+    stdin_open: true
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
+    volumes:
+      - "/app/node_modules"
+      - "./:/app"
+  web-prod:
+    container_name: my-app-prod
+    build: .
+    ports:
+      - '1337:80'
+  tests:
+    stdin_open: true
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - /app/node_modules
+      - .:/app
+    command: [ 'npm', 'run', 'test' ]

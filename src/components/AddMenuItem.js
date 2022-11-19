@@ -3,11 +3,13 @@ import classes from './AddMenuItem.module.css'
 import {useDispatch, useSelector} from "react-redux";
 import {RestaurantActions} from "../store/restaurant-slice";
 import {useNavigate} from "react-router-dom";
+import IconButton from "./UI/IconButton";
 
 const AddMenuItem = () => {
     const { category, name, price, description, imageURL } = useSelector(state => state.restaurant.newMenuItem)
     const dispatch = useDispatch()
     const navigate = useNavigate()
+
 
     const handleItemCategoryChange = (event) => {
         const itemCategory = event.currentTarget.value
@@ -57,6 +59,7 @@ const AddMenuItem = () => {
         const itemImageInput = document.getElementById('item-image')
         const itemImageFile = itemImageInput.files[0]
         const itemImageUrl = URL.createObjectURL(itemImageFile)
+
         dispatch(RestaurantActions.updateNewMenuItemImageFile(itemImageUrl))
     }
 
@@ -73,7 +76,7 @@ const AddMenuItem = () => {
 
         const res = await fetch("http://localhost:5000/restaurant/new-item", {method: 'POST', body: formData})
         if(res.ok){
-            // dispatch(RestaurantActions.resetFormField())
+            dispatch(RestaurantActions.resetFormField())
             // const json = await res.json()
             // dispatch(RestaurantActions.updateMenuItems(json))
             navigate('/restaurant-menu/')
@@ -85,7 +88,8 @@ const AddMenuItem = () => {
 
     return(
         <div>
-            Add menu item
+
+            <span className={classes.title}><h3>Create New Menu Item</h3></span>
 
             <form onSubmit={handleSubmitItem}>
                 <div className={classes.newMenuItemControl}>
@@ -100,7 +104,7 @@ const AddMenuItem = () => {
 
                 <div className={classes.newMenuItemControl}>
                     <label htmlFor={'item_name'}>Item Name</label>
-                    <input id={'item_name'} type={'text'} onChange={handleItemNameChange} value={name} />
+                    <input id={'item_name'} type={'text'} onChange={handleItemNameChange} value={name} placeholder={'Item name'} />
                 </div>
 
 
@@ -112,21 +116,26 @@ const AddMenuItem = () => {
 
                 <div className={classes.newMenuItemControl}>
                     <label>Item Description</label>
-                    <textarea maxLength={100} rows={10} cols={30} placeholder={"Item description"} onChange={handleItemDescriptionChange} value={description} />
+                    <textarea maxLength={300} rows={10} cols={30} placeholder={"Item description"} onChange={handleItemDescriptionChange} value={description} />
                 </div>
 
 
-                <div className={classes.newMenuItemControl}>
-                    {imageURL && <img id={'item-image-preview'} alt={'new item image preview'} src={imageURL}/>}
+                <div className={classes.newMenuItemImageUpload}>
+                    {imageURL ? (
+                        <div className={classes.imageUploadPreview__container} style={{backgroundImage: `url(${imageURL})`}}>
+                            {/*<img id={'item-image-preview'} alt={'new item image preview'} src={imageURL}/>*/}
+                        </div>
+                    ): <div className={classes.imageUploadPreview__container} style={{backgroundColor: `slategray`}}></div>}
                     <label htmlFor={'item-image'}>
+                        Upload Image
                         <span className="material-symbols-outlined">file_upload</span>
                         <input id={'item-image'} type={'file'} onInputCapture={handleItemImageChange} hidden />
                     </label>
                 </div>
+                <div className={classes.submitNewItemButton__container}>
+                    <IconButton iconName={'send'} styles={{backgroundColor: 'rgba(255,255,255,1) '}} />
+                </div>
 
-
-
-                <button>Add Item To Menu</button>
 
             </form>
         </div>

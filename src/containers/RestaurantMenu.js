@@ -14,6 +14,7 @@ const RestaurantMenu = () => {
     const loaderData = useLoaderData()
     const dispatch = useDispatch()
     const menuItems = useSelector(state => state.restaurant.menuItems)
+    const authState = useSelector(state => state.auth)
     // console.log('loader data...', loaderData)
     // useEffect(() => {
     //     getMenuItems()
@@ -37,7 +38,14 @@ const RestaurantMenu = () => {
                 <Outlet />
             </div>
             <div className={classes.footer__container}>
-                <IconButton onClick={addMenuItemHandler} iconName={"cake_add"} />
+                { authState.isAuthd ? (
+                    <div>
+                        <IconButton onClick={addMenuItemHandler} iconName={"cake_add"} />
+                    </div>
+                ) : (
+                    <div>High demand! Order now! Great assets always being added to the warehouse!</div>
+                )}
+
             </div>
         </React.Fragment>
 

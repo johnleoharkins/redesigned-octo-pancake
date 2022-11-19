@@ -5,6 +5,48 @@
 .menuItemsList{
     display: flex;
     flex-wrap: wrap;
-    margin: 1rem;
+    /*margin: 1rem;*/
     overflow: hidden;
+    min-height: inherit;
+    /*min-width: inherit;*/
+    width: 100%;
+    justify-content: space-between;
+}
+
+.menuSelection{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 1rem;
+}
+
+.menuSelection button{
+    font-family: 'Merriweather', serif;
+    font-weight: 300;
+    text-align: center;
+    font-size: medium;
+
+    background-color: #FFFFFF;
+    border: lightgrey solid 1px;
+    border-radius: 4px;
+    justify-content: center;
+    align-content: center;
+    padding: 4px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.menuSelection button:active{
+    background-color: darkgray;
+}
+.active{
+    background-color: #616161;
+    box-shadow: 0 0 12px palegoldenrod;
+}
+
+@media only screen and (min-width: 899px) {
+    .menuItemsList{
+        /*max-width: 800px;*/
+        flex-direction: row;
+        justify-content: center;
+    }
 }

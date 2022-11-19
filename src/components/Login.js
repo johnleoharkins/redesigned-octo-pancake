@@ -29,8 +29,8 @@ async function postData(url, data){
 
 
 const Login = (props) => {
-    const [username, setUsername] = useState('jharkins')
-    const [password, setPassword] = useState('password')
+    const [username, setUsername] = useState('')
+    const [password, setPassword] = useState('')
 
     const dispatch = useDispatch();
 

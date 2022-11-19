@@ -4,6 +4,7 @@ import RestaurantSlice, {RestaurantActions} from "../../store/restaurant-slice";
 import {useLoaderData, useNavigate} from "react-router-dom";
 import NewMenuItem from "./NewMenuItem";
 import classes from './NewMenu.module.css'
+import Card from "../UI/Card";
 const NewMenu = () => {
     const navigate = useNavigate()
     const loaderData = useLoaderData()
@@ -42,9 +43,9 @@ const NewMenu = () => {
         if(menuItems.length > 0){
             menuItemsList = menuItems.filter((item) => item.category === category ).map((item) => {
                 return(
-                    <div key={item.id} className={classes.MenuItem__container}>
+                    <Card key={item.id}>
                         <NewMenuItem id={item.id} category={item.category} name={item.name} price={item.price} description={item.description} imageURL={item.imageURL} />
-                    </div>
+                    </Card>
                 )
             })
         }else{
@@ -53,15 +54,20 @@ const NewMenu = () => {
         return menuItemsList
     }
 
+    const menuButtonClasses = (submenuName) => {
+        return category === submenuName ? `${classes.submenu} ${classes.active}` : classes.submenu;
+    }
+
     return(
         <React.Fragment>
-            <div>
-                <button onClick={() => dispatch(RestaurantActions.updateMenuCategory('entree'))}>entrees</button>
-                <button onClick={() => dispatch(RestaurantActions.updateMenuCategory('appetizer'))}>appetizers</button>
-                <button onClick={() => dispatch(RestaurantActions.updateMenuCategory('beverage'))}>beverages</button>
+            <div className={classes.menuSelection}>
+                <button className={menuButtonClasses('appetizer')} onClick={() => dispatch(RestaurantActions.updateMenuCategory('appetizer'))}>appetizers</button>
+
+                <button className={menuButtonClasses('entree')} onClick={() => dispatch(RestaurantActions.updateMenuCategory('entree'))}>entrees</button>
+                <button className={menuButtonClasses('beverages')} onClick={() => dispatch(RestaurantActions.updateMenuCategory('beverage'))}>beverages</button>
             </div>
+            <h3 style={{'textAlign': 'center'}}>{category}</h3>
             <div className={classes.menuItemsList}>
-                <h3 style={{'textAlign': 'center'}}>{category}</h3>
                 {getMenuItems()}
             </div>
 

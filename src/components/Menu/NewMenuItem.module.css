@@ -1,11 +1,12 @@
 .itemImage{
     width: 100%;
     height: 100%;
+
 }
 
 .imageCard{
-    max-height: 300px;
-    max-width: 300px;
+    height: 100%;
+    /*max-width: 80px;*/
     border-radius: 10px;
     box-sizing: border-box;
     object-fit: cover;
@@ -15,4 +16,89 @@
     grid-area: i;
     justify-self: center;
     margin-bottom: 1rem;
+}
+
+.image2{
+    height: 100px;
+
+    /*height: 100%;*/
+    width: 100%;
+    display: inline-block;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /*background-size: 100px 100px;*/
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+.itemInformation{
+    /*height: 100px;*/
+    display: flex;
+    /*flex-direction: column;*/
+    /*height: fit-content;*/
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+.itemName{
+    font-family: 'Jacques Francois', serif;
+    font-weight: bolder;
+    font-size: 18px;
+    text-align: center;
+    margin: 2px;
+}
+
+.itemDescription{
+    font-family: 'Jacques Francois', serif;
+    /*overflow-wrap: break-word;*/
+    font-size: 12px;
+    /*overflow: hidden;*/
+    display: inline-block;
+    grid-area: 1/1/3/3;
+}
+
+.itemDescription p{
+    height: 100px;
+    overflow-wrap: break-word;
+    overflow: hidden;
+    margin-block-start: 0;
+    /*white-space: nowrap;*/
+    /*display: flex;*/
+    /*flex-wrap: wrap;*/
+
+}
+
+.itemDescriptionExpanded{
+    overflow-wrap: break-word;
+    height: fit-content;
+    font-family: 'Jacques Francois', serif;
+    font-size: 12px;
+    display: inline-block;
+    grid-area: 1/1/3/3;
+}
+.itemDescriptionExpanded p{
+    margin-block-start: 0;
+}
+
+.description__container{
+    display: grid;
+    grid-template-rows: 1fr 30px;
+    grid-template-columns: 30px 1fr;
+    box-sizing: border-box;
+
+}
+
+.itemPrice{
+    font-family: 'Jacques Francois', serif;
+    text-align: center;
+
+}
+
+@media only screen and (min-width: 899px){
+    .image2{
+        height: 540px;
+    }
 }

@@ -5,7 +5,9 @@
     /*flex-direction: column-reverse;*/
     /*flex-wrap: nowrap;*/
     align-self: center;
-    /*width: 33%;*/
+    background-color: whitesmoke;
+    height: 100%;
+    width: 100%;
 
 }
 
@@ -24,5 +26,12 @@
 @media only screen and (min-width: 300px) and (max-width: 899px) {
     .content__container{
         min-height: 680px;
+    }
+}
+
+@media only screen and (min-width: 899px) {
+    .content__container{
+        min-height: 700px;
+        /*display: flex;*/
     }
 }

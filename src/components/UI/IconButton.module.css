@@ -2,7 +2,8 @@
 
 
 .iconButton{
-    background-color: #FFFFFF;
+    /*background-color: #FFFFFF;*/
+    background-color: rgba(0,0,0,0.1) !important;
     border: none;
     border-radius: 50% 50%;
     justify-content: center;
