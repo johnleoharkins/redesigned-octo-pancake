@@ -1,2 +1,2 @@
-FROM nginx
-COPY --from=build /etc/nginx/conf.d/default.conf
+FROM nginx:stable-alpine
+COPY /Nginx.conf /etc/nginx/conf.d/default.conf
