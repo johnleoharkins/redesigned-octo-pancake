@@ -21,7 +21,13 @@ Mobile Nav
 
 ![mobile views v001](https://media.giphy.com/media/qYgVnOxhTOFuvQ4frU/giphy.gif)
 
+gifs made possible by:
+ - [giphy](https://engineering.giphy.com/how-to-make-gifs-with-ffmpeg/)
+ - [ffmpeg](https://ffmpeg.org/ffmpeg-filters.html#palettegen-1)
+ - [pitivi](https://www.pitivi.org/download/)
+ - [the computer & internet](https://google.com)
 
+Thank You
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
