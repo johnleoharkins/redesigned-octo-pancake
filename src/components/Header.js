@@ -42,6 +42,10 @@ const Header = () => {
         dispatch(newLogActions.openLogOverlay())
     }
 
+    const handleRegister = () => {
+        navigate("/register")
+    }
+
 
     return(
             <div className={classes.container}>
@@ -52,7 +56,12 @@ const Header = () => {
                         <h1 className={classes.business__typography}>Le'mag Silphium</h1>
                     </div>
                     <div className={classes.controls}>
-                        { (localStorage.isLoggedIn && authState.isAuthd) ? authenticated() : <button className={`${classes.auth__button} ${classes.button__typography}` } onClick={handleOpenLoginModal} >Log-in</button> }
+                        { (localStorage.isLoggedIn && authState.isAuthd) ? authenticated() : (
+                            <div>
+                                <button className={`${classes.auth__button} ${classes.button__typography}` } onClick={handleOpenLoginModal} >Log-in</button>
+                                <button className={`${classes.auth__button} ${classes.button__typography}` } onClick={handleRegister} >Register</button>
+                            </div>
+                        )}
                         {/*{ authenticated() }*/}
 
                     </div>

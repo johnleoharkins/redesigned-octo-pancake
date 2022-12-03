@@ -13,6 +13,7 @@ const Writings = () => {
     const {newLogOverlayOpen} = useSelector(state => state.newLog)
     const dispatch = useDispatch();
 
+    console.log("logs", logs)
 
     const logsList = logs.map((post) => {
         return (

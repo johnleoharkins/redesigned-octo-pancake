@@ -13,6 +13,7 @@ import Menu from "./Menu/Menu";
 import AddMenuItem from "./components/AddMenuItem";
 import {RestaurantActions} from "./store/restaurant-slice";
 import NewMenu from "./components/Menu/NewMenu";
+import Register from "./components/Register";
 
 
 const router = createBrowserRouter([
@@ -82,6 +83,10 @@ const router = createBrowserRouter([
                     const res = await fetch(`http://localhost:5000/posts`, {'method': "GET"})
                     return res.json()
                 }
+            },
+            {
+                path: "/register",
+                element: <Register />
             }
         ]
     }

@@ -1,4 +1,28 @@
-# Getting Started with Create React App
+# Misc React App
+
+Practice working on components etc. 
+
+A goal was to not use 3rd party component libraries, practice various skills. etc.
+Works with [ubiquitous-sniffle](https://github.com/johnleoharkins/ubiquitous-sniffle)
+
+Will need to do better; it is pretty ug-o. Now is defunct / a sandbox etc.
+
+tldr: had fun, learned a lot, iterate
+
+Login, Writings
+
+![login writings v001](https://media.giphy.com/media/4rqTBlVNfWnoz2qEKK/giphy.gif)
+
+A menu
+
+![menu v001](https://media.giphy.com/media/GhtKcOTyjbUHoKGhHs/giphy.gif)
+
+Mobile Nav
+
+![mobile views v001](https://media.giphy.com/media/qYgVnOxhTOFuvQ4frU/giphy.gif)
+
+
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

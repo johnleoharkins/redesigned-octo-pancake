@@ -44,8 +44,8 @@ const Navigation = (props) => {
                     <hr />
                     <div className={classes.navDropdownContent}>
                         <span className={`${classes.navDropdownLink} ${classes.button__typography}`} onClick={() => handleNavigationLinkClick("/restaurant-menu") }>menu</span>
-                        <span className={`${classes.navDropdownLink} ${classes.button__typography}`} onClick={() => handleNavigationLinkClick("/restaurant-menu-two")}>BagShot Spread</span>
-                        <span  className={`${classes.navDropdownLink} ${classes.button__typography}`}>about<br />reservations<br />topo map live</span>
+                        <span className={`${classes.navDropdownLink} ${classes.button__typography}`} onClick={() => handleNavigationLinkClick("/restaurant-menu-two")}>menu 2</span>
+                        {/*<span  className={`${classes.navDropdownLink} ${classes.button__typography}`}>about<br />reservations<br />topo map live</span>*/}
                     </div>
                 </div>
 
@@ -54,8 +54,8 @@ const Navigation = (props) => {
                     <hr />
                     <div className={classes.navDropdownContent}>
                         <span className={`${classes.navDropdownLink} ${classes.button__typography}`} onClick={() => handleNavigationLinkClick('/writings')} >writings</span>
-                        <span  className={`${classes.navDropdownLink} ${classes.button__typography}`}>pictures</span>
-                        <span  className={`${classes.navDropdownLink} ${classes.button__typography}`}>resources</span>
+                        {/*<span  className={`${classes.navDropdownLink} ${classes.button__typography}`}>pictures</span>*/}
+                        {/*<span  className={`${classes.navDropdownLink} ${classes.button__typography}`}>resources</span>*/}
                     </div>
                 </div>
 
